@@ -23,6 +23,7 @@ class Database{
  public function query($query)
  {
   $this->stmt = $this->dbh->prepare($query);
+  // echo $query;
  }
  public function bind($param, $value, $type=null)
  {
@@ -56,6 +57,10 @@ class Database{
  {
   $this->execute();
   return $this->stmt->fetch(PDO::FETCH_ASSOC);
+ }
+ public function CekPerubahan()
+ {
+  return $this->stmt->rowCount();
  }
 }
 ?>
