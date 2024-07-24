@@ -9,5 +9,10 @@ class Controller{
   // require_once __DIR__ .'/../models/'. $model .'.php';
   return new $model;
  }
+ public function redirect($url)
+ {
+  header('Location:' . BASEURL . $url);
+  exit();
+ }
 }
 ?>
