@@ -10,25 +10,25 @@
 <body>
  <div class="container">
   <div class="row justify-content-center">
-   <div class="col-md-6">
+   <div class="col-md-5">
     <div class="card mt-5">
      <div class="card-header text-center">
       <h2>Login</h2>
      </div>
-     <div class="card-body">
-      <?php if (isset($error)) { ?>
-      <div class="alert alert-danger" role="alert">
-       <?php echo $error; ?>
-      </div>
-      <?php } ?>
-      <form action="<?= BASEURL; ?>/login/auth" method="post">
+      <form action="<?= BASEURL; ?>/Users" method="post">
+      <input type="hidden" value="login" name="type">
+      <?php Messege::flash()?>
        <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required>
+        <label for="username" class="form-label">Username atau Email</label>
+        <input type="text" class="form-control" id="username" name="username/email" >
        </div>
        <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
+        <input type="password" class="form-control" id="password" name="password" >
+       </div>
+       <div class="mb-3">
+       <p class="text-center text-muted">Belum memiliki akun? <a href="<?= BASEURL; ?>/Users"
+       class="fw-bold text-body"><u>Klik daftar</u></a></p>
        </div>
        <button type="submit" class="btn btn-primary w-100">Login</button>
       </form>

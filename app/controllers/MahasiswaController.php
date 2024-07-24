@@ -21,11 +21,11 @@ class MahasiswaController extends Controller{
  }
  public function tambah(){
   if ($this->model('Mahasiswa_Model')->tambahMahasiswa($_POST)>0) {
-   Messege::setFlash('berhasil', 'ditambahkan' , 'success');
+   Messege::setFlash('Data Mahasiswa','berhasil', 'ditambahkan' , 'success');
    header('Location:' . BASEURL . '/mahasiswa');
    exit;
   }else {
-   Messege::setFlash('gagal', 'ditambah', 'danger');
+   Messege::setFlash('Data Mahasiswa','gagal', 'ditambahkan', 'danger');
    header('Location:' . BASEURL . '/mahasiswa');
    exit;
   }
@@ -33,11 +33,11 @@ class MahasiswaController extends Controller{
  public function hapus($id)
  {
   if ($this->model('Mahasiswa_Model')->hapusMahasiswa($id)>0) {
-   Messege::setFlash('berhasil', 'dihapus' , 'success');
+   Messege::setFlash('Data Mahasiswa','berhasil', 'dihapus' , 'success');
    header('Location:' . BASEURL . '/mahasiswa');
    exit;
   }else {
-   Messege::setFlash('gagal', 'ditambah', 'danger');
+   Messege::setFlash('Data Mahasiswa','gagal', 'ditambah', 'danger');
    header('Location:' . BASEURL . '/mahasiswa');
    exit;
   }
@@ -49,11 +49,11 @@ class MahasiswaController extends Controller{
  public function editdata()
  {
   if ($this->model('Mahasiswa_Model')->editMahasiswa($_POST)>0) {
-   Messege::setFlash('berhasil', 'diedit' , 'success');
+   Messege::setFlash('Data Mahasiswa','berhasil', 'diedit' , 'success');
    header('Location:' . BASEURL . '/mahasiswa');
    exit;
   }else {
-   Messege::setFlash('gagal', 'ditambah', 'danger');
+   Messege::setFlash('Data Mahasiswa','gagal', 'ditambah', 'danger');
    header('Location:' . BASEURL . '/mahasiswa');
    exit;
   }
