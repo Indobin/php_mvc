@@ -19,7 +19,7 @@
         <a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/home">Home</a>
         <a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/mahasiswa">Mahasiswa</a>
         <a class="nav-link" href="<?= BASEURL; ?>/about">About</a>
-
+        <a class="nav-link" href="<?= BASEURL; ?>/users/logout" onclick="return confirm('yakin?');">Logout</a>
         
       </div>
     </div>

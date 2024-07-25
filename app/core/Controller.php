@@ -1,5 +1,7 @@
 <?php 
+
 class Controller{
+ 
  public function view($view, $data = [])
  {
   require_once '../app/views/' . $view . '.php';
@@ -13,6 +15,13 @@ class Controller{
  {
   header('Location:' . BASEURL . $url);
   exit();
+ }
+ public function CekLogin()
+ {
+    // Cek apakah user sudah login
+    if (!isset($_SESSION['id'])) {
+     $this->redirect('/users/login');
+ }
  }
 }
 ?>

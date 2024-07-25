@@ -3,6 +3,9 @@ class UsersController extends Controller
 {
  public function index()
  {
+  if (isset($_SESSION['id'])) {
+    $this->redirect('/home');
+}
   $data = [
    'judul' => 'Login'
   ];
@@ -61,6 +64,9 @@ class UsersController extends Controller
 }
 public function Login()
 {
+  if (isset($_SESSION['id'])) {
+    $this->redirect('/home');
+}
   $data = [
     'judul' => 'Login'
    ];
@@ -84,9 +90,6 @@ public function auth()
     // Cek email atau username
     $user = $this->model('Users_Model')->CekUserEmail($data['username/email'], $data['username/email']);
     if ($user) {
-        // Debug: Output informasi user
-        error_log("User ditemukan: " . print_r($user, true));
-
         $loggedInUser = $this->model('Users_Model')->login($data['username/email'], $data['password']);
         if ($loggedInUser) {
             $this->MembuatSession($loggedInUser);
@@ -106,10 +109,20 @@ public function auth()
 
 public function MembuatSession($user)
 {
-    $_SESSION['id'] = $user->id;
-    $_SESSION['username'] = $user->username;
-    $_SESSION['email'] = $user->email;
+    $_SESSION['id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['email'] = $user['email'];
     $this->redirect('/home');
+    // var_dump($a);
+    // die();
+}
+public function logout()
+{
+  unset($_SESSION['id']);
+  unset($_SESSION['username']);
+  unset($_SESSION['email']);
+  session_destroy();
+  $this->redirect('/users/login');
 }
 
 }
