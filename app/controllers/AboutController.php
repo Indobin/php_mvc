@@ -1,5 +1,9 @@
 <?php 
 class AboutController extends Controller{
+ public function __construct()
+ {
+  $this->CekLogin();
+ }
  public function index()
  {
   $data =[
